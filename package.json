@@ -2,16 +2,19 @@
   "name": "restaurant_list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node models/seeds/restaurantSeeder.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^4.0.2",
     "mongoose": "^5.9.7"
   },
   "devDependencies": {
