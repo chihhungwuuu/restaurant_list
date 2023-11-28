@@ -36,7 +36,6 @@
       <div class="row row-cols-sm-3">
         {{#each restaurants}}
           <div class="col">
-
             <div class="card mb-3">
               <img
                 class="card-img-top"
@@ -58,14 +57,14 @@
               </div>
 
               <div class="card-footer d-flex justify-content-end flex-wrap">
-                <a href="/restaurants/{{this.id}}/edit">
+                <a href="/restaurants/{{this._id}}/edit">
                   <button class="btn btn-link btn-sm">Edit</button>
                 </a>
-                <a href="/restaurants/{{this.id}}/edit">
+                <a href="/restaurants/{{this._id}}">
                   <button class="btn btn-link btn-sm">Details</button>
                 </a>
                 <form
-                  action="/restaurants/{{this.id}}?_method=DELETE"
+                  action="/restaurants/{{this._id}}?_method=DELETE"
                   method="POST"
                 >
                   <button
