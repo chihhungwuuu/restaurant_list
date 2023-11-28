@@ -1,4 +1,6 @@
 # 我的餐廳清單
+![Index page about Restaurant List](./public/image/restaurant_list.png)
+
 ## 介紹
 紀錄餐廳的清單，能夠新增、修改及刪除。
 
@@ -41,11 +43,11 @@
 ## 開發工具
 
 - Node.js 14.16.0
-- Express 4.17.1
-- Express-Handlebars 5.3.3
-- Bootstrap 5.2.1
+- Express 4.16.4
+- Express-Handlebars 4.0.2
+- Bootstrap 5.1.3
 - Font-awesome 5.8.1
 
 - MongoDB
-- mongoose 6.0.5
+- mongoose 5.9.7
 
