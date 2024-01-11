@@ -7,12 +7,12 @@
         <div class='input-group mb-3'>
           <input
             type='text'
-            name='keyword'
+            name='keywords'
             class='form-control'
             placeholder='輸入餐廳、分類'
             aria-label='Restaurant Name...'
-            value='{{keyword}}'
-            aria-describedby='search-button'
+            value='{{keywords}}'
+            aria-describedby='button-addon2'
           />
           <button class='btn btn-major' type='submit' id='search-button'><i
               class='fas fa-search'
@@ -34,7 +34,7 @@
   <div class='row'>
     <div class='col-md-10 col-12 mx-auto'>
       <div class='row row-cols-sm-3'>
-        {{#each restaurants}}
+        {{#each restaurantsData}}
           <div class='col'>
             <div class='card mb-3'>
               <img
@@ -43,14 +43,14 @@
                 alt='{{this.name}}'
               />
               <div class='card-body p-3'>
-                <h6 class='card-title mb-1'>{{this.name}}</h6>
+                <h6 class='card-title mb-1 text-secondary'>{{this.name}}</h6>
 
                 <div class='restaurant-category mb-1'>
                   <i class='fas fa-utensils pr-2'></i>
                   {{this.category}}
                 </div>
 
-                <span class='badge rounded-pill bg-danger font-weight-normal'>
+                <span class='badge rounded-pill text-bg-danger'>
                   {{this.rating}}
                   <i class='fas fa-star fa-xs'></i>
                 </span>

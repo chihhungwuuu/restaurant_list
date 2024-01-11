@@ -1,11 +1,11 @@
-const mongoose = require("mongoose")
-const Restaurant = require("../restaurant") // 載入 todo model
+const mongoose = require('mongoose')
+const Restaurant = require('../restaurant')
 
-const restaurantList = require("../../restaurant.json")
+const restaurantList = require('../../restaurant.json')
 let restaurants = restaurantList.results
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
 }
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -13,11 +13,11 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true
 })
 const db = mongoose.connection
-db.on("error", () => {
-  console.log("mongodb error!")
+db.on('error', () => {
+  console.log('mongodb error!')
 })
-db.once("open", () => {
-  console.log("mongodb connected!")
+db.once('open', () => {
+  console.log('mongodb connected!')
 
   for (let i = 0; i < restaurants.length; i++) {
     Restaurant.create({
@@ -33,5 +33,5 @@ db.once("open", () => {
     })
   }
 
-  console.log("done")
+  console.log('done')
 })
