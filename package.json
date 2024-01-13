@@ -15,11 +15,8 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.16.4",
-<<<<<<< HEAD
-    "express-handlebars": "^7.1.2",
-=======
+    "method-override": "^3.0.0",
     "express-handlebars": "^5.3.5",
->>>>>>> f56b461 (feat: change express-handlebars to 5.3.5)
     "mongoose": "^5.9.7"
   },
   "devDependencies": {
