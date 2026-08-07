@@ -1,6 +1,17 @@
 <h1 class='mb-1 restaurant-show-title'>編輯餐廳 - {{restaurant.name}}</h1>
 <div class='container'>
+  {{#if errors}}
+    <div class='alert alert-danger' role='alert'>
+      <ul class='mb-0'>
+        {{#each errors}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
   <form action='/restaurants/{{restaurant._id}}/edit' method='POST'>
+    {{! CSRF token，跨站送過來的表單湊不出這一組 }}
+    <input type='hidden' name='_csrf' value='{{csrfToken}}' />
     <div class='mb-3'>
       <label for='name' class='form-label'>店名<span
           class='text-danger'

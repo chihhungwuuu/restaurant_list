@@ -1,6 +1,17 @@
 <h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
 <div class="container">
+  {{#if errors}}
+    <div class="alert alert-danger" role="alert">
+      <ul class="mb-0">
+        {{#each errors}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
   <form action="/restaurants" method="POST">
+    {{! CSRF token，跨站送過來的表單湊不出這一組 }}
+    <input type="hidden" name="_csrf" value="{{csrfToken}}" />
     <div class="mb-3">
       <label for="name" class="form-label">店名<span
           class="text-danger"
@@ -11,6 +22,7 @@
         id="name"
         placeholder="Alpha 科技餐廳"
         name="name"
+        value="{{restaurant.name}}"
         required
       />
     </div>
@@ -24,6 +36,7 @@
         id="name_en"
         placeholder="Alpha Tech Theme Restaurant"
         name="name_en"
+        value="{{restaurant.name_en}}"
         required
       />
     </div>
@@ -38,6 +51,7 @@
         placeholder="美式"
         list="categoryOptions"
         name="category"
+        value="{{restaurant.category}}"
         required
       />
       {{! 使用datalist，讓使用者可選擇或自行輸入 }}
@@ -53,7 +67,14 @@
       <label for="image" class="form-label">圖片連結<span
           class="text-danger"
         >*</span></label>
-      <input type="url" class="form-control" id="image" name="image" required />
+      <input
+        type="url"
+        class="form-control"
+        id="image"
+        name="image"
+        value="{{restaurant.image}}"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="location" class="form-label">地址<span
@@ -65,6 +86,7 @@
         id="location"
         placeholder="台中市北屯區迷有這條路520號"
         name="location"
+        value="{{restaurant.location}}"
         required
       />
     </div>
@@ -78,6 +100,7 @@
         id="phone"
         placeholder="04-23456789"
         name="phone"
+        value="{{restaurant.phone}}"
         required
       />
     </div>
@@ -90,6 +113,7 @@
         class="form-control"
         id="google_map"
         name="google_map"
+        value="{{restaurant.google_map}}"
         required
       />
     </div>
@@ -105,6 +129,7 @@
         max="5"
         step="0.1"
         name="rating"
+        value="{{restaurant.rating}}"
         required
       />
     </div>
@@ -118,7 +143,7 @@
         rows="3"
         name="description"
         required
-      ></textarea>
+      >{{restaurant.description}}</textarea>
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-primary">
