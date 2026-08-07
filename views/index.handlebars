@@ -64,6 +64,8 @@
                   <button class='btn btn-link btn-sm'>Details</button>
                 </a>
                 <form action='/restaurants/{{this._id}}/delete' method='POST'>
+                  {{! CSRF token，跨站送過來的表單湊不出這一組 }}
+                  <input type='hidden' name='_csrf' value='{{@root.csrfToken}}' />
                   <button
                     type='submit'
                     class='btn btn-danger btn-sm text-white'
